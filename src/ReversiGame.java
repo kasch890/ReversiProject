@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-public class Project {
+public class ReversiGame {
     public static Scanner keyboard = new Scanner(System.in);
 
     public static void main(String[] args) {
