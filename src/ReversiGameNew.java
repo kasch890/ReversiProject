@@ -30,9 +30,6 @@ public class ReversiGameNew {
             }
         }
 
-        drawBoard();
-        drawPieces(pieces);
-
 //      Initial color for next move (white goes first every time
         // next_color is the color of the piece that will be placed next
         int next_color = 1;
@@ -72,11 +69,6 @@ public class ReversiGameNew {
 //          check if its a valid move, if so draw the next board_fill_states, otherwise ask the questions again?
             if (isValidMove(pieces, next_x,next_y, next_color)){
 
-//                board = update(board, all_color_states, next_x, next_y, next_color);
-//              The current player (ie the color of the piece for the next move) is changed
-//               next line might not be necessary if included in update
-//                colors[next_x][next_y] = next_color;
-//                draw(board);
                 next_color *= -1;
             }
 
@@ -102,57 +94,6 @@ public class ReversiGameNew {
          }
 
 
-    }
-
-    // draw method that will be called on in the main method
-    // takes state[][] as an input to draw the current state of the board
-    public static void draw(Box[][] state){
-        //draw a box in each location of a spot
-        for (int i=0; i<state.length; i++){
-            for (int j =0; j<state.length;j++){
-
-                if (state[i][j].getFilled()){
-                    //draw cell picture if filled
-                    Box temp = new Box(i,j,true,1);
-                    state[i][j] = temp;
-
-                }
-                else {
-                    //draw empty spot
-
-
-
-                }
-
-            }
-        }
-    }
-    //state update method (takes in state and returns state)
-    // every time the state is updated, the number of boxes with filled states
-    // should increase by one if done correctly
-    public static Box[][] update(Box[][] state,int[][] colors,int x, int y, int curr_color){
-        //check if indexes are valid
-
-        Box[][] next_state= new Box[state.length][state.length];
-//        colors[x][y] = curr_color;
-        state[x][y].updateFilled(curr_color);
-        //write the boxes for the new state
-        for (int i=0;i< state.length;i++){
-            for (int j=0;j< state.length;j++){
-                //I check this condition in isValidMove
-//               if(i==x&&j==y&&state[i][j].getFilled()){
-//                   System.out.print("This spot is already filled");
-//
-//               }
-//                if(colors[i][j]!=5){
-                   Box tem = state[i][j].updateBox(colors[i][j]);
-                   next_state[i][j]=tem;
-//            }
-
-            }
-        }
-        state = next_state;
-        return state;
     }
 
     public static boolean isValidMove(int[][]pieces,int x_input , int y_input, int curr_color){
@@ -308,10 +249,10 @@ boolean check = (xval<8&&xval>=0&&yval>=0&&yval<8);
         for (int x =0; x<8; x++){
             for (int y=0; y<8; y++){
                 StdDraw.setPenColor(StdDraw.DARK_GRAY);
-                StdDraw.filledSquare(x, y,0.5);
+                StdDraw.filledSquare(x+0.5, y+0.5,0.5);
 
                 StdDraw.setPenColor(17,165,35);
-                StdDraw.filledSquare(x, y,0.48);
+                StdDraw.filledSquare(x+0.5, y+0.5,0.48);
             }
         }
 
@@ -322,11 +263,11 @@ boolean check = (xval<8&&xval>=0&&yval>=0&&yval<8);
             for (int y=0; y<8; y++){
                 if (pieces[x][y] == 1){
                     StdDraw.setPenColor(StdDraw.WHITE);
-                    StdDraw.filledCircle(x, y,0.45);
+                    StdDraw.filledCircle(x+0.5, y+0.5,0.45);
                 }
                 else if (pieces[x][y]== -1){
                     StdDraw.setPenColor(StdDraw.BLACK);
-                    StdDraw.filledCircle(x, y,0.45);
+                    StdDraw.filledCircle(x+0.5, y+0.5,0.45);
                 }
             }
         }
