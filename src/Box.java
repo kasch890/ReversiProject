@@ -55,13 +55,13 @@ public class Box {
     public double getX(){return x;}
     public double getY(){return y;}
 
-
-    public boolean compareColor(Box other){
-        //return false if they are different colors
-        if (!other.getFilled()){return true;}
-        else if(this.getColor()==other.getColor()){return true;}
-        else return false;
-    }
+//
+//    public boolean compareColor(Box other){
+//        //return false if they are different colors
+//        if (!other.getFilled()){return true;}
+//        else if(this.getColor()==other.getColor()){return true;}
+//        else return false;
+//    }
 
 
     public Box updateBox(int next_color){
