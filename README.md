@@ -1,0 +1,1 @@
+My old code has a Box object that hold the state (is there a piece in this box) and also handles drawing the pieces. I am opting for more reusable code by instead drawing the board first, then holding the locations of pieces in anoth board, similar to how i have it now but with cleaner logic. 
